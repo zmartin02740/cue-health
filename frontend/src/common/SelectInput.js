@@ -15,7 +15,7 @@ export default ({ question }) => {
   return (
     <>
     <Form.Label>{question.title}:</Form.Label>
-    <Form.Select onChange={handleSelectInputChange} value={value}>
+    <Form.Select onChange={handleSelectInputChange} value={value.response}>
       {optionsComponent}
     </Form.Select>
     </>

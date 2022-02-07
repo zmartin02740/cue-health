@@ -7,9 +7,9 @@ export default ({ question }) => {
   const dispatch = useDispatch()
   const handleInputChange = (event) => {
     const value = event.target.value
-    if (values.includes(value)) {
+    if (values.response.includes(value)) {
       let index = question.options.indexOf(value)
-      let updatedSelection = values
+      let updatedSelection = values.response
       updatedSelection.splice(index, 1)
 
       dispatch({ type: 'REMOVEFROMQUESTIONFIVE', payload: updatedSelection })

@@ -14,7 +14,7 @@ export default ({ question }) => {
     <Form.Control
       type="text"
       onChange={handleInputChange}
-      value={value}
+      value={value.response}
     />
     <Form.Text muted>
       {question.hint}

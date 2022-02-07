@@ -16,7 +16,7 @@ export default ({ question }) => {
       onChange={handleInputChange}
       placeholder="Leave a comment here"
       style={{ height: '100px' }}
-      value={value}
+      value={value.response}
     />
     </>
   )
