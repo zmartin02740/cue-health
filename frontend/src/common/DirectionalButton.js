@@ -1,7 +1,6 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button'
 import { useDispatch, useSelector } from 'react-redux'
-import { connect } from 'react-redux';
 import * as actionType from '../store/actions';
 
 export function DirectionalButton({ direction, questionCount, questions }) {

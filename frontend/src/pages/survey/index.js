@@ -11,10 +11,11 @@ export default () => {
   const questionCount = Object.keys(questions).length
 
   return (
-    <Container>
+    <Container data-test='surveyComponent'>
       <Row>
         <Col>
           <DirectionalButton
+            data-test="directionalBtn"
             direction={'left'}
             questionCount={questionCount}
             questions={questions}
@@ -25,6 +26,7 @@ export default () => {
         </Col>
         <Col>
           <DirectionalButton
+            data-test="directionalBtn"
             direction={'right'}
             questionCount={questionCount}
             questions={questions}

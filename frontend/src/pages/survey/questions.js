@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { connect } from 'react-redux';
 import Button from 'react-bootstrap/Button'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
@@ -32,12 +31,14 @@ export function Questions({
 
     let validationErrors = []
 
+    // Validates each input
     const qOneValidation = ValidationHandler(questionOne)
     const qTwoValidation = ValidationHandler(questionTwo)
     const qThreeValidation = ValidationHandler(questionThree)
     const qFourValidation = ValidationHandler(questionFour)
     const qFiveValidation = ValidationHandler(questionFive)
 
+    // CHecks to see if any inputs failed validation
     if (qOneValidation.length > 0) validationErrors.push(qOneValidation)
     if (qTwoValidation.length > 0) validationErrors.push(qTwoValidation)
     if (qThreeValidation.length > 0) validationErrors.push(qThreeValidation)
@@ -47,6 +48,8 @@ export function Questions({
     if (validationErrors.length > 0) {
       setValidations(validationErrors)
     } else {
+      // refreshing submission for next user
+      setValidations([])
       dispatch({ type: 'UPDATERESPONSES', payload: response })
       dispatch({ type: 'UPDATESQUESTIONONE', payload: '' })
       dispatch({ type: 'UPDATESQUESTIONTWO', payload: '' })
@@ -76,6 +79,7 @@ export function Questions({
       <Col>({value + 1} / {questionCount})</Col>
       <Col style={errorStyle}>{validations.length > 0 ? validations.join(', ') : null}</Col>
       <Button
+        data-test='button'
         onClick={surveySubmission}
         style={buttonStyle}
         variant="primary">
