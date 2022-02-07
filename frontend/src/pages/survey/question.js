@@ -5,7 +5,7 @@ import SelectInput from '../../common/SelectInput'
 import TextareaInput from '../../common/TextareaInput'
 import TextInput from '../../common/TextInput'
 
-export default ({ currentState, question }) => {
+export default ({ question }) => {
   const questionInputHandler = (questionObj) => {
     let input
     switch (questionObj.type) {
