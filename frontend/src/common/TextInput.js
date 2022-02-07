@@ -1,8 +1,12 @@
-import React, { useContext } from 'react'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import Form from 'react-bootstrap/Form'
 
-export default ({ currentState, question }) => {
+export default ({ question }) => {
+  const value = useSelector((state) => state.questionOne)
+  const dispatch = useDispatch()
   const handleInputChange = (event) => {
+    dispatch({ type: 'UPDATESQUESTIONONE', payload: event.target.value })
   }
   return (
     <>
@@ -10,6 +14,7 @@ export default ({ currentState, question }) => {
     <Form.Control
       type="text"
       onChange={handleInputChange}
+      value={value}
     />
     <Form.Text muted>
       {question.hint}

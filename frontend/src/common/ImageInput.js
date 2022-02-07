@@ -1,23 +1,35 @@
-import React, { useContext } from 'react'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import Card from 'react-bootstrap/Card'
 import Form from 'react-bootstrap/Form'
-import { LastSavedContext } from '../pages/survey/questions'
 
-export default ({ currentState, question }) => {
-
+export default ({ question }) => {
+  const values = useSelector((state) => state.questionFour)
+  const dispatch = useDispatch()
   const handleInputChange = (event) => {
+    dispatch({ type: 'UPDATESQUESTIONFOUR', payload: event.target.value })
   }
 
   return (
     <>
     <Form.Label>{question.title}</Form.Label>
     <Form.Control
-      data-testid="upInput"
       type="file"
       onChange={handleInputChange}
+      value={values[-1]}
     />
     <Form.Text muted>
       {question.hint}
     </Form.Text>
+    {values.length > 0 ?
+      values.map((file, index) => {
+        return (
+          <Card key={index}>
+            <Card.Body>{file}</Card.Body>
+          </Card>
+        )
+      })
+      : null}
     </>
   )
 }

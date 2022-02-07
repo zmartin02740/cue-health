@@ -3,6 +3,7 @@ import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Questions from './questions'
+import Responses from './responses'
 import DirectionalButton from '../../common/DirectionalButton'
 import questions from '../../data/questionsObj'
 
@@ -32,7 +33,7 @@ export default () => {
       </Row>
       <Row>
         <Col md={{ span: 6, offset: 3 }}>
-          RESPONSES
+          <Responses />
         </Col>
       </Row>
     </Container>
