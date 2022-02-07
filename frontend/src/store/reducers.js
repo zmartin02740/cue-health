@@ -1,11 +1,26 @@
 import * as actionType from './actions';
 const initialState = {
   value: 0,
-  questionOne: '',
-  questionTwo: '',
-  questionThree: '',
-  questionFour: [],
-  questionFive: [],
+  questionOne: {
+    title: 'Email',
+    response: ''
+  },
+  questionTwo: {
+    title: 'Project Description',
+    response: ''
+  },
+  questionThree: {
+    title: 'Price Range',
+    response: ''
+  },
+  questionFour: {
+    title: 'Upload Files',
+    response: []
+  },
+  questionFive: {
+    title: 'Requested Services',
+    response: []
+  },
   responses: []
 }
 
@@ -29,42 +44,66 @@ const reducer = (state = initialState, action) => {
     case actionType.UPDATESQUESTIONONE:
       return {
         ...state,
-        questionOne: action.payload
+        questionOne: {
+          ...state.questionOne,
+          response: action.payload
+        }
       }
     case actionType.UPDATESQUESTIONTWO:
       return {
         ...state,
-        questionTwo: action.payload
+        questionTwo: {
+          ...state.questionTwo,
+          response: action.payload
+        }
       }
     case actionType.UPDATESQUESTIONTHREE:
       return {
         ...state,
-        questionThree: action.payload
+        questionThree: {
+          ...state.questionThree,
+          response: action.payload
+        }
       }
     case actionType.UPDATESQUESTIONFOUR:
       return {
         ...state,
-        questionFour: [...state.questionFour, action.payload]
+        questionFour: {
+          ...state.questionFour,
+          response: [...state.questionFour.response, action.payload]
+        }
       }
     case actionType.CLEARQUESTIONFOUR:
       return {
         ...state,
-        questionFour: []
+        questionFour: {
+          ...state.questionFour,
+          response: []
+        }
       }
     case actionType.ADDTOQUESTIONFIVE:
       return {
         ...state,
-        questionFive: [...state.questionFive, action.payload]
+        questionFive: {
+          ...state.questionFive,
+          response: [...state.questionFive.response, action.payload]
+        }
       }
     case actionType.REMOVEFROMQUESTIONFIVE:
       return {
         ...state,
-        questionFive: action.payload
+        questionFive: {
+          ...state.questionFive,
+          response: action.payload
+        }
       }
     case actionType.CLEARQUESTIONFIVE:
       return {
         ...state,
-        questionFive: []
+        questionFive: {
+          ...state.questionFive,
+          response: []
+        }
       }
     case actionType.UPDATERESPONSES:
       return {
